@@ -10,17 +10,17 @@ import Middlewares from './api/middlewares'
 import Authentication from './api/authentication'
 import UserRouter from './user/router'
 
-if(!process.env.JWT_SECRET) {
-    const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
-    console.error(err);
-}
+// if(!process.env.JWT_SECRET) {
+//     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern#prepare-your-secret');
+//     console.error(err);
+// }
 
 const app = express();
 
-mongoose.connect(config.mongoose.uri, { useMongoClient: true })
-.catch(err=>console.error(err));
+// mongoose.connect(config.mongoose.uri, { useMongoClient: true })
+// .catch(err=>console.error(err));
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 // App Setup
 app.use(cors({
@@ -41,7 +41,7 @@ app.use((err, req, res, next) => {
     res.status(422).json(err.message);
 });
 
-app.use(express.static('docs'));
+// app.use(express.static('docs'));
 
 // Server Setup
 const port = process.env.PORT || 8000
